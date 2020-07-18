@@ -65,4 +65,5 @@ floor_egg_breaker(f, low, high):
 
 * Runtime:
     O(logn) - binary search - recursive function, search is divided in half each iteration vs going floor by floor. 
+    + also minimizes eggs broken especially if it's a tall building 
 
