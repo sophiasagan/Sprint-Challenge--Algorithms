@@ -106,7 +106,6 @@ class SortingRobot:
 
             while self.can_move_right():
                 self.move_right() # move right
-
                 if self.compare_item() == 1: # compare
                     self.swap_item()
                     self.set_light_on()
@@ -114,108 +113,10 @@ class SortingRobot:
                 self.move_left()
 
             self.swap_item() # restart iteration
-
             self.move_right() # start sort again
         return
 
-        # self.set_light_on()
-
-        # while self.light_is_on(): # set lights
-        #     self.set_light_off()
-        #     self.swap_item() # grab initial card
-        #     # print("cardA", self._item)
-        #     # if self.compare_item() == None:
-        #     #     return None
-            
-        #     while self.can_move_right():
-        #         self.move_right() # move right
-        #         if self.compare_item() == 1: # compare
-        #             self.swap_item() # swap made
-        #             # print("cardB", self._item)
-        #             self.set_light_on() # turn on light
-        #         if self.compare_item() == 0:
-        #             self.move_left()
-        #             self.swap_item()
-        #             self.move_right()
-        #         if self.compare_item() == -1:
-        #             continue
-        #         # if self.compare_item() == None:
-        #         #     continue
-        #             # self.swap_item()
-        #             # self.move_left()
-        #             # self.swap_item()
-        #         # if self.compare_item() == -1:
-        #         # if self.compare_item() == None:
-        #         #     self.move_left()
-        #         #     self.swap_item()
-        #         #     self.move_right()
-        #     while self.can_move_left():
-        #         self.move_left() # move left
-        #         if self.compare_item() == None:
-        #             # self.move_right
-        #             self.swap_item() # place other card
-        #             break 
-        #     self.move_right() # move restart iteration
-        # while self.can_move_right():
-        #     self.move_right()
-        # self.swap_item() # place remaining card
-
-
-        # self.set_light_off()
-
-        # while self.light_is_off():
-        #     self.set_light_on()
-        #     self.swap_item()
-        #     self.set_light_on()
-
-        # while self.can_move_right(): # move right
-        #     self.move_right()
-        #     if self.compare_item() == 1: # compare items
-        #         self.swap_item()
-        #         self.set_light_on()
-
-        # while self.can_move_left():
-        #         # move left
-        #         self.move_left()
-        #         # if compare item is true, swap item with current item
-        #         if self.compare_item() == None:
-        #             self.swap_item()
-        #             
-
-        # self.move_right()
-
-        # while self.can_move_right():
-        #     self.swap_item()
-        #     self.set_light_on()
-        # else:
-        #     # swapped
-        #     self.set_light_on()
         
-
-        # while self.can_move_left(): # move left
-        #     self.move_left()
-        #     if self.compare_item() == None: # compare items
-        #         self.swap_item()
-
-        # while self.can_move_left() 
-        #         self.move_left()
-        #         self.swap_item()
-           
-        # self.move_right()
-            
-        #     if not self.can_move_right():
-                
-        #         self.set_light_off()
-            
-        # self.move_right() # move over
-
-        # while(self.can_move_right()):
-        #     self.move_right()
-        # self.swap_item()
-    
-        # if self.light_is_on():
-            # self.sort
-
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
