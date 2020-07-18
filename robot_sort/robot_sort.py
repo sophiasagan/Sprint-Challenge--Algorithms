@@ -97,8 +97,26 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        self.set_light_on()
 
+        while self.light_is_on(): # set lights
+            
+            self.set_light_off() # stop
+            self.swap_item() # get initial item
+
+            while self.can_move_right():
+                self.move_right() # move right
+                if self.compare_item() == 1: # compare
+                    self.swap_item()
+                    self.set_light_on()
+            while self.can_move_left() and self.compare_item() != None: # checking for more moves
+                self.move_left()
+
+            self.swap_item() # restart iteration
+            self.move_right() # start sort again
+        return
+
+        
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
@@ -110,3 +128,46 @@ if __name__ == "__main__":
 
     robot.sort()
     print(robot._list)
+
+
+'''
+ what's the point of the light? can robot not move/sort without it? - light needed for swapping - on/off
+ can move to either side 
+
+
+ compare and swap while moving through items - two at a time -> bubble sort
+
+need to pick up first item first to compare to next item
+
+ while not end of list:
+    move right
+    if item held is larger than item in front of robot:
+        swap item
+        put other in previous spot - left spot
+        move right
+        repeat until sorted
+    if item held is less than item in front of robot:
+        replace item in left spot
+        move right
+        repeat until sorted
+    if item held is equal to item in front of robot:
+        replace item to left
+        move right
+        repeat until sorted
+    at end of loop start at beginning
+    if swap light stays on 
+    when robot completes loop with no swaps light off - robot off.
+'''
+'''
+[0, 41, 58, 49, 26, 15, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 4, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 
+76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 
+79, 83, 13, 57, 86, 12, 56, 50, 55, None] almost there - meh
+'''
+
+'''
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 
+90, 91, 92, 93, 94, 95, 96, 97, 98, 99] only failing test 5 raceback (most recent call last):
+  File "f:/Sprint-Challenge--Algorithms/robot_sort/test_robot.py", line 37, in test_sorting_random_list
+    self.assertEqual(robot._list, sorted(self.random_list))
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+'''
